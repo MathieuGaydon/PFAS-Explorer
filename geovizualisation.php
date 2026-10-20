@@ -13,7 +13,10 @@
         <div id="map"></div>
         <div id="info"> 
             <h2>Point sélectionné :</h2>
-            <p id ="info-content">Contenu</p>
+            <ul>
+                <li id="dotName"></li>
+                <li id="lat"></li>
+                <li id="long"></li>
         </div>
     </div>
 </body>

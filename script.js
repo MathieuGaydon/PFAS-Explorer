@@ -9,12 +9,15 @@ var layer = L.layerGroup().addTo(map);
 
 //imprime le point de coordonnée p sur la carte
 function printDot(p) {
-    L.circleMarker(p, {radius: 4, color: '#ffffff', weight: 1, fillColor: '#d62828', fillOpacity: 0.8}).addTo(layer).on('click', getInfo);
+    L.circleMarker([p.lat, p.long], {radius: 4, color: '#ffffff', weight: 1, fillColor: '#d62828', fillOpacity: 0.8, dotId: p.dotId, dotName: p.dotName}).addTo(layer).on('click', getInfo);
 }
 
 function getInfo(e) {
     var p = e.target.getLatLng();
-    document.getElementById('info-content').textContent = 'Latitude : '+p.lat+', Longitude : '+p.lng;
+    //document.getElementById('dotId').textContent = 'ID : '+e.target.options.dotId;
+    document.getElementById('dotName').textContent = 'Nom : '+e.target.options.dotName;
+    document.getElementById('lat').textContent = 'Latitude : '+p.lat;
+    document.getElementById('long').textContent = 'Longitude : '+p.lng;
     document.getElementById('info').style.display = 'block';
     e.target.setStyle({fillColor: 'green', fillOpacity: 1});
 }
