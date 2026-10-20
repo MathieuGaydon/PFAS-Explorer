@@ -14,3 +14,8 @@ html, body {
     fill: blue;
     fill-opacity: 1;
 }
+
+#map path.leaflet-interactive:active {
+    fill: green;
+    fill-opacity: 1;
+}
