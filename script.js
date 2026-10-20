@@ -24,6 +24,12 @@ function printDot(p) {
 //fonction qui nettoie la carte des points affichés et re-imprime tout
 function refresh() {
     layer.clearLayers();
+    //on met à jours les coordonnées visibles à l'écran
+    var bounds = map.getBounds();
+    var minLat = bounds.getSouth();
+    var maxLat = bounds.getNorth();
+    var minLong  = bounds.getWest();
+    var maxLong  = bounds.getEast();
     dots.forEach(printDot);
 }
 
