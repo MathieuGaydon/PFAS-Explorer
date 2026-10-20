@@ -1,4 +1,16 @@
+html, body {
+    height: 90%;
+    margin: 15px;
+    width: 90%;
+}
+
 #map {
-    height: 700px;
-    width: 700px;
+    height: 65%;
+    width: 45%;
+}
+
+
+#map path.leaflet-interactive:hover {
+    fill: blue;
+    fill-opacity: 1;
 }
