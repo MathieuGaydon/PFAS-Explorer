@@ -5,15 +5,6 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);
 
-//liste des points, à modifier pour contenir tous les point que l'on veut afficher
-var dots = [
-    [32.080881, 34.780569],
-    [31.768319, 35.213710],
-    [32.794044, 34.989571],
-    [31.252973, 34.791462],
-    [32.916667, 35.5]
-];
-
 var layer = L.layerGroup().addTo(map);
 
 //imprime le point de coordonnée p sur la carte
@@ -22,14 +13,17 @@ function printDot(p) {
 }
 
 //fonction qui nettoie la carte des points affichés et re-imprime tout
-function refresh() {
-    layer.clearLayers();
+async function refresh() {
     //on met à jours les coordonnées visibles à l'écran
     var bounds = map.getBounds();
     var minLat = bounds.getSouth();
     var maxLat = bounds.getNorth();
     var minLong  = bounds.getWest();
     var maxLong  = bounds.getEast();
+    var url = 'controller.php'+'?minLat='+minLat+'&maxLat='+maxLat+'&minLong='+minLong+'&maxLong='+maxLong;
+    //attend le traitement de la requête et récupère le résultat en json
+    var dots = await (await fetch(url)).json();
+    layer.clearLayers();
     dots.forEach(printDot);
 }
 
