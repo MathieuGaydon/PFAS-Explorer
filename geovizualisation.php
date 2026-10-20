@@ -9,6 +9,12 @@
     <script src="script.js" defer></script>
 </head>
 <body>
-    <div id="map"></div>
+    <div id="main-content">
+        <div id="map"></div>
+        <div id="info"> 
+            <h2>Point sélectionné :</h2>
+            <p id ="info-content">Contenu</p>
+        </div>
+    </div>
 </body>
 </html>

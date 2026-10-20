@@ -1,7 +1,18 @@
 html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+#main-content {
+    display: flex;
+    gap: 15px;
     height: 90%;
-    margin: 15px;
-    width: 90%;
+    width: 100%;
 }
 
 #map {
@@ -9,13 +20,16 @@ html, body {
     width: 45%;
 }
 
+#info {
+    display: none;
+    height: 65%;
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: red;
+}
 
 #map path.leaflet-interactive:hover {
     fill: blue;
-    fill-opacity: 1;
-}
-
-#map path.leaflet-interactive:active {
-    fill: green;
     fill-opacity: 1;
 }

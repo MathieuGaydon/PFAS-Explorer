@@ -13,7 +13,10 @@ function printDot(p) {
 }
 
 function getInfo(e) {
-    alert("MAGIQUE !");
+    var p = e.target.getLatLng();
+    document.getElementById('info-content').textContent = 'Latitude : '+p.lat+', Longitude : '+p.lng;
+    document.getElementById('info').style.display = 'block';
+    e.target.setStyle({fillColor: 'green', fillOpacity: 1});
 }
 
 //fonction qui nettoie la carte des points affichés et re-imprime tout
