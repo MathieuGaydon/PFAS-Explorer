@@ -5,7 +5,8 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);
 
-var layer = L.layerGroup().addTo(map);
+//le plugin cluster regroupe automatiquement les points proches
+var layer = L.markerClusterGroup({maxClusterRadius: 15, disableClusteringAtZoom: 12}).addTo(map);
 
 //imprime le point de coordonnée p sur la carte
 function printDot(p) {
