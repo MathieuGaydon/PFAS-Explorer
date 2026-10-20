@@ -9,7 +9,7 @@ var layer = L.layerGroup().addTo(map);
 
 //imprime le point de coordonnée p sur la carte
 function printDot(p) {
-    L.circleMarker(p, {radius: 4, color: '#ffffff', weight: 1, fillColor: '#d62828', fillOpacity: 0.8}).addTo(layer).on('mouseover', getInfo);
+    L.circleMarker(p, {radius: 4, color: '#ffffff', weight: 1, fillColor: '#d62828', fillOpacity: 0.8}).addTo(layer).on('click', getInfo);
 }
 
 function getInfo(e) {
