@@ -3,7 +3,8 @@ namespace App\View;
 
 final class Layout extends Component {
     public function __construct(
-        private readonly string $titre1, $titre2,
+        private readonly string $titre1,
+        private readonly string $titre2,
         private readonly ?array $utilisateurs,
         private readonly array $enfants,
     ) {}
