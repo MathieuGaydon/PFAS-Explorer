@@ -1,6 +1,8 @@
 <?php
 use App\Controller\HomeController;
 use App\Controller\AuthController;
+use App\Controller\LegalNoticeController;
+use App\Controller\SiteMapController;
 
 return [
     ['GET',  '/',         [HomeController::class, 'index']],
@@ -9,4 +11,6 @@ return [
     ['GET',  '/register', [AuthController::class, 'registerForm']],
     ['POST', '/register', [AuthController::class, 'register']],
     ['GET',  '/logout',   [AuthController::class, 'logout']],
+    ['GET',  '/legalnotice',   [LegalNoticeController::class, 'index']],
+    ['GET',  '/sitemap',   [SiteMapController::class, 'index']],
 ];

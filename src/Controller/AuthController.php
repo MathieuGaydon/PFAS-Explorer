@@ -19,15 +19,10 @@ class AuthController
             return Response::redirect('/');
         }
 
-        $titre = 'Connexion';
-        $erreur = null;
-        $email = '';
-
         return $this->view->render('login', [
-            'titre1' => $titre,
-            'titre2' => $titre,
-            'erreur' => $erreur,
-            'email' => $email,
+            'erreur' => null,
+            'email' => '',
+            'utilisateurs' => $request->session('utilisateur'),
         ]);
     }
 
@@ -50,36 +45,26 @@ class AuthController
             return Response::redirect('/');
         }
 
-        $titre = 'Connexion';
-        $erreur = 'Email ou mot de passe incorrect.';
-
         return $this->view->render('login', [
-            'titre1' => $titre,
-            'titre2' => $titre,
-            'erreur' => $erreur,
+            'erreur' => 'Email ou mot de passe incorrect.',
             'email' => $email,
+            'utilisateurs' => $request->session('utilisateur'),
         ]);
     }
 
     public function registerForm(Request $request): Response
     {
-        $titre = 'Inscription';
-        $erreurs = [];
-        $succes = false;
-        $email = '';
 
         return $this->view->render('register', [
-            'titre1' => $titre,
-            'titre2' => $titre,
-            'erreurs' => $erreurs,
-            'succes' => $succes,
-            'email' => $email,
+            'erreurs' => [],
+            'succes' => false,
+            'email' => '',
+            'utilisateurs' => $request->session('utilisateur'),
         ]);
     }
 
     public function register(Request $request): Response
     {
-        $titre = 'Inscription';
         $erreurs = [];
         $succes = false;
 
@@ -109,11 +94,10 @@ class AuthController
         }
 
         return $this->view->render('register', [
-            'titre1' => $titre,
-            'titre2' => $titre,
             'erreurs' => $erreurs,
             'succes' => $succes,
             'email' => $email,
+            'utilisateurs' => $request->session('utilisateur'),
         ]);
     }
 

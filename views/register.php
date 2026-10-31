@@ -28,8 +28,12 @@ if ($succes ?? false) {
 }
 
 echo new Layout(
-        'Inscription',
-        'Inscription',
-        $utilisateurConnecte ?? null,
-        $enfants
+        title: 'PFAS-Explorer - Inscription',
+        description: 'Inscrivez-vous dès maintenant sur le site PFAS-Explorer.',
+        smTitle: 'PFAS-Explorer - Inscription',
+        smDescription: 'Inscrivez-vous dès maintenant sur le site PFAS-Explorer.',
+        smImage: 'http://localhost:8000/_assets/images/Logo_PFAS.webp',
+        smUrl: 'http://localhost:8000/register',
+        utilisateurs: $utilisateurs ?? null,
+        enfants: $enfants
 );

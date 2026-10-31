@@ -12,8 +12,7 @@ final class HomeController
     public function index(Request $request): Response {
 
         return $this->view->render('home', [
-            'titre1' => 'Accueil',
-            'titre2' => 'Bienvenue',
+            'utilisateurs' => $request->session('utilisateur'),
         ]);
     }
 }

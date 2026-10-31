@@ -12,16 +12,20 @@ use App\Core\Request;
 use App\Model\UserRepository;
 use App\Controller\HomeController;
 use App\Controller\AuthController;
+use App\Controller\LegalNoticeController;
+use App\Controller\SiteMapController;
 
 Env::charger($racine . '/.env');
 $pdo = Database::connexion($racine);
 $repository = new UserRepository($pdo);
 
-$view = new View($racine . '/views', ['utilisateurConnecte' => $_SESSION['utilisateur'] ?? null]);
+$view = new View($racine . '/views', ['utilisateurs' => $_SESSION['utilisateur'] ?? null]);
 
 $fabriques = [
     HomeController::class => fn() => new HomeController($view),
     AuthController::class => fn() => new AuthController($repository, $view),
+    LegalNoticeController::class => fn() => new LegalNoticeController($view),
+    SiteMapController::class => fn() => new SiteMapController($view),
 ];
 
 $request = Request::fromGlobals();

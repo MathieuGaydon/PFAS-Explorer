@@ -9,8 +9,12 @@ $enfants = [
 ];
 
 echo new Layout(
-        'Erreur 404',
-        'Page non trouvée',
-        $utilisateurConnecte ?? null,
-        $enfants
+        title: 'Erreur 404 - PFAS-Explorer',
+        description: 'La page demandée n\'existe pas sur PFAS-Explorer.',
+        smTitle: 'Erreur 404 - Page non trouvée',
+        smDescription: 'La page demandée n\'existe pas sur PFAS-Explorer.',
+        smImage: 'http://localhost:8000/_assets/images/Logo_PFAS.webp',
+        smUrl: 'http://localhost:8000/',
+        utilisateurs: $utilisateurs ?? null,
+        enfants: $enfants
 );
