@@ -16,7 +16,7 @@ final class Database {
         $pdo = new PDO($dsn, Env::get('DB_USER') ?: null, Env::get('DB_PASSWORD') ?: null);
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $pdo->exec('CREATE TABLE IF NOT EXISTS users (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            id INTEGER AUTO_INCREMENT PRIMARY KEY ,
             email TEXT NOT NULL UNIQUE,
             password TEXT NOT NULL
             )');
