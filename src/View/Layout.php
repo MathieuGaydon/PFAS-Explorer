@@ -5,12 +5,12 @@ final class Layout extends Component {
     public function __construct(
         private readonly string $title,
         private readonly string $description,
+        private readonly array $enfants,
+        private readonly ?array $utilisateurs,
         private readonly ?string $smTitle = null,
         private readonly ?string $smDescription = null,
         private readonly ?string $smImage = null,
         private readonly ?string $smUrl = null,
-        private readonly ?array $utilisateurs,
-        private readonly array $enfants,
     ) {}
 
     public function render(): string {

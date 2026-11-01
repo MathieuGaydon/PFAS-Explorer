@@ -24,11 +24,11 @@ if ($utilisateurs !== null) {
 echo new Layout(
     title: 'Accueil - PFAS-EXPLORER',
     description: 'PFAS-Explorer est une application web cartographique permettant d\'explorer les contaminations aux PFAS et de gérer des espaces de travail et des données environnementales.',
+    enfants: $enfants,
+    utilisateurs: $utilisateurs,
     smTitle: 'PFAS-Explorer - Accueil',
     smDescription: 'PFAS-Explorer est une application web cartographique permettant d\'explorer les contaminations aux PFAS et de gérer des espaces de travail et des données environnementales.',
     smImage: 'http://localhost:8000/_assets/images/Logo_PFAS.webp',
-    smUrl: 'http://localhost:8000/',
-    utilisateurs: $utilisateurs,
-    enfants: $enfants
+    smUrl: 'http://localhost:8000/'
 );
 

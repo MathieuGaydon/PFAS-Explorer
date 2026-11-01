@@ -19,13 +19,13 @@ $enfants = [
 ];
 
 echo new Layout(
-        title: 'PFAS-Explorer - Connexion',
-        description: 'Connectez-vous à votre PFAS-Explorer.',
-        smTitle: 'PFAS-Explorer - Connexion',
-        smDescription: 'Connectez-vous à votre PFAS-Explorer.',
-        smImage: 'http://localhost:8000/_assets/images/Logo_PFAS.webp',
-        smUrl: 'http://localhost:8000/login',
-        utilisateurs: $utilisateurs ?? null,
-        enfants: $enfants
+    title: 'PFAS-Explorer - Connexion',
+    description: 'Connectez-vous à votre PFAS-Explorer.',
+    enfants: $enfants,
+    utilisateurs: $utilisateurs ?? null,
+    smTitle: 'PFAS-Explorer - Connexion',
+    smDescription: 'Connectez-vous à votre PFAS-Explorer.',
+    smImage: 'http://localhost:8000/_assets/images/Logo_PFAS.webp',
+    smUrl: 'http://localhost:8000/login'
 );
 
