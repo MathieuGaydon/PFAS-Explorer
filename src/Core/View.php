@@ -1,12 +1,12 @@
 <?php
+
 namespace App\Core;
 
-final class View {
-
-    public function __construct(
-         private readonly string $dossier,
-        private readonly array $partage = []
-    ) {}
+final class View
+{
+    public function __construct(private readonly string $dossier, private readonly array $partage = [])
+    {
+    }
 
     public function render(string $vue, array $donnees = [], int $statut = 200): Response
     {
@@ -16,6 +16,7 @@ final class View {
     private function capturer(string $fichier, array $donnees): string
     {
         extract($donnees, EXTR_SKIP);
+
         ob_start();
         require $this->dossier . '/' . $fichier;
 

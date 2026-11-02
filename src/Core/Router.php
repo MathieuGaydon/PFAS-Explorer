@@ -1,12 +1,12 @@
 <?php
+
 namespace App\Core;
 
-final class Router {
-    public function __construct(
-        private readonly array $routes,
-        private readonly array $fabriques,
-        private readonly View $view
-    ) {}
+final class Router
+{
+    public function __construct(private readonly array $routes, private readonly array $fabriques, private readonly View $view)
+    {
+    }
 
     public function dispatch(Request $request): Response
     {
@@ -16,6 +16,7 @@ final class Router {
                 return $controleur->$action($request);
             }
         }
+
         return $this->view->render('404', ['chemin' => $request->chemin], 404);
     }
 }
