@@ -1,13 +1,17 @@
 <?php
+
 namespace App\Core;
 
 use PDO;
+use RuntimeException;
 
-final class Database {
-    public static function connexion(string $racine): PDO {
+final class Database
+{
+    public static function connexion(string $racine): PDO
+    {
         Env::charger($racine . '/.env');
 
-        $dsn = Env::get('DB_DSN') ?? throw new \RuntimeException('DB_DSN non défini');
+        $dsn = Env::get('DB_DSN') ?? throw new RuntimeException('DB_DSN non défini');
 
         if (str_starts_with($dsn, 'sqlite:') && !str_starts_with(substr($dsn, 7), '/')) {
             $dsn = 'sqlite:' . $racine . '/' . substr($dsn, 7);

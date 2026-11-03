@@ -28,10 +28,10 @@ final class LegalNotice extends Component
             </ul>
             <h3>Données personnelles</h3>
             <ul>
-                <li>Les données personnelles collectées sur ce site sont traitées sous la responsabilité des étudiants concepteurs du projet dans le cadre du projet académique du BUT Informatique de l'IUT d\'Aix-Marseille Université.</li>
+                <li>Les données personnelles collectées sur ce site sont traitées sous la responsabilité des étudiants concepteurs du projet dans le cadre du projet académique du BUT Informatique de l'IUT d'Aix-Marseille Université.</li>
                 <li>Dans le cadre de l'utilisation du site, nous pouvons être amenés à collecter et traiter les données suivantes : Formulaire d'inscription / Connexion : Nom, prénom, adresse e-mail, mot de passe. Numéro de téléphone pour l’authentification à double facteurs.</li>
                 <li>Les données recueillies sont strictement nécessaires à la gestion des comptes utilisateurs et l’accès aux services du site.</li>
-                <li>Les données collectées sont exclusivement destinées à l'équipe projet et à l\'encadrement pédagogique. Aucune donnée personnelle n'est transmise, vendue ou cédée à des tiers à des fins commerciales.</li>
+                <li>Les données collectées sont exclusivement destinées à l'équipe projet et à l'encadrement pédagogique. Aucune donnée personnelle n'est transmise, vendue ou cédée à des tiers à des fins commerciales.</li>
             </ul>
             <p>Conformément au Règlement Général sur la Protection des Données (RGPD) et à la loi « Informatique et Libertés », vous disposez des droits suivants concernant vos données :</p>
             <ul>

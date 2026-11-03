@@ -1,9 +1,11 @@
 <?php
+
 namespace App\Core;
 
 final class Env
 {
     private static array $variables = [];
+
     public static function charger(string $chemin): void
     {
         // vérifie l'existence du fichier
@@ -13,6 +15,7 @@ final class Env
 
         // parcourt du fichier
         $lignes = file($chemin, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+
         foreach ($lignes as $ligne) {
             $ligne = trim($ligne);
 
@@ -23,6 +26,7 @@ final class Env
 
             // découpage en 2 parties sur '='
             $parties = explode('=', $ligne, 2);
+
             if (count($parties) === 2) {
                 $cle = trim($parties[0]);
                 $valeur = trim($parties[1]);

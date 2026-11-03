@@ -1,8 +1,11 @@
 <?php
+
 namespace App\View;
 
-final class SiteMap extends Component {
-    public function render(): string {
+final class SiteMap extends Component
+{
+    public function render(): string
+    {
         return <<<HTML
         <div class="sitemap">
             <h2>Plan du site</h2>
@@ -15,6 +18,5 @@ final class SiteMap extends Component {
             </ul>
         </div>
         HTML;
-
     }
 }

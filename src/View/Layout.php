@@ -1,19 +1,15 @@
 <?php
+
 namespace App\View;
 
-final class Layout extends Component {
-    public function __construct(
-        private readonly string $title,
-        private readonly string $description,
-        private readonly array $enfants,
-        private readonly ?array $utilisateurs,
-        private readonly ?string $smTitle = null,
-        private readonly ?string $smDescription = null,
-        private readonly ?string $smImage = null,
-        private readonly ?string $smUrl = null,
-    ) {}
+final class Layout extends Component
+{
+    public function __construct(private readonly string $title, private readonly string $description, private readonly array $enfants, private readonly ?array $utilisateurs, private readonly ?string $smTitle = null, private readonly ?string $smDescription = null, private readonly ?string $smImage = null, private readonly ?string $smUrl = null)
+    {
+    }
 
-    public function render(): string {
+    public function render(): string
+    {
         $title = $this->e($this->title);
         $description = $this->e($this->description);
         $smTitle = $this->e($this->smTitle);
@@ -21,11 +17,7 @@ final class Layout extends Component {
         $smImage = $this->e($this->smImage ?? '');
         $smUrl = $this->e($this->smUrl ?? '');
 
-        $nav = $this->renderAll($this->utilisateurs === null
-            ? [new Link('/', 'Accueil'), ' | ', new Link('/login', 'Connexion'), ' | ', new Link('/register', 'Inscription')]
-            : [new Link('/', 'Accueil'), ' | ', new Link('/logout', 'Déconnexion')]
-        );
-
+        $nav = $this->renderAll($this->utilisateurs === null ? [new Link('/', 'Accueil'), ' | ', new Link('/login', 'Connexion'), ' | ', new Link('/register', 'Inscription')] : [new Link('/', 'Accueil'), ' | ', new Link('/logout', 'Déconnexion')]);
         $contenu = $this->renderAll($this->enfants);
 
         return <<<HTML
