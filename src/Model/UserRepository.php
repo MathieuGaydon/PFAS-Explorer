@@ -40,7 +40,7 @@ final class UserRepository
         $stmt = $this->pdo->prepare('INSERT INTO users (email, password) VALUES (:email, :password)');
         $stmt->execute(['email' => $email, 'password' => $hash,]);
 
-        $id = $this->pdo->lastInsertId();
+        $id = (int)$this->pdo->lastInsertId();
 
         return new User($id, $email, $hash);
     }

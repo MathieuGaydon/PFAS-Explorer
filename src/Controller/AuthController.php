@@ -34,6 +34,7 @@ class AuthController
         $utilisateur = $this->repository->findByEmail($email);
 
         if ($utilisateur !== null && $utilisateur->verifierMotDePasse($password)) {
+            session_regenerate_id(true);
             $request->setSession('utilisateur', ['id' => $utilisateur->id, 'email' => $utilisateur->email]);
 
             return Response::redirect('/');

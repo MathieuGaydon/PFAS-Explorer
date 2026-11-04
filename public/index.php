@@ -23,13 +23,16 @@ $repository = new UserRepository($pdo);
 
 $view = new View($racine . '/views', ['utilisateurs' => $_SESSION['utilisateur'] ?? null]);
 
-$fabriques = [HomeController::class => fn() => new HomeController($view), AuthController::class => fn() => new AuthController($repository, $view), LegalNoticeController::class => fn() => new LegalNoticeController($view), SiteMapController::class => fn() => new SiteMapController($view),];
+$fabriques = [
+    HomeController::class => fn() => new HomeController($view),
+    AuthController::class => fn() => new AuthController($repository, $view),
+    LegalNoticeController::class => fn() => new LegalNoticeController($view),
+    SiteMapController::class => fn() => new SiteMapController($view),
+];
 
 $request = Request::fromGlobals();
-
-$response = null;
 
 $routes = require $racine . '/config/routes.php';
 
 $router = new Router($routes, $fabriques, $view);
-$router->dispatch(Request::fromGlobals())->send();
+$router->dispatch($request)->send();
