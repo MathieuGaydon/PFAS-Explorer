@@ -17,7 +17,7 @@ final class UserRepository
 
     public function findByEmail(string $email): ?User
     {
-        $stmt = $this->pdo->prepare('SELECT id, email, password FROM users WHERE email = :email');
+        $stmt = $this->pdo->prepare('SELECT id, email, password FROM "User" WHERE email = :email');
         $stmt->execute(['email' => $email]);
         $utilisateur = $stmt->fetch(PDO::FETCH_ASSOC);
 
@@ -37,11 +37,22 @@ final class UserRepository
     {
         $hash = password_hash($motDePasseClair, PASSWORD_DEFAULT);
 
-        $stmt = $this->pdo->prepare('INSERT INTO users (email, password) VALUES (:email, :password)');
+        $stmt = $this->pdo->prepare('INSERT INTO "User" (email, password) VALUES (:email, :password)');
         $stmt->execute(['email' => $email, 'password' => $hash,]);
 
-        $id = $this->pdo->lastInsertId();
+        $id = (int)$this->pdo->lastInsertId();
 
         return new User($id, $email, $hash);
+    }
+
+    public function updatePassword(int $id, string $motDePasseClair): bool
+    {
+        $hash = password_hash($motDePasseClair, PASSWORD_DEFAULT);
+        $stmt = $this->pdo->prepare('UPDATE "User" SET password = :password WHERE id = :id');
+
+        return $stmt->execute([
+            'password' => $hash,
+            'id' => $id
+        ]);
     }
 }

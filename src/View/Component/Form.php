@@ -1,11 +1,14 @@
 <?php
 
-namespace App\View;
+namespace App\View\Component;
 
 final class Form extends Component
 {
-    public function __construct(private readonly string $action, private readonly array $enfants, private readonly string $method = 'post')
-    {
+    public function __construct(
+        private readonly string $action,
+        private readonly array $enfants,
+        private readonly string $method = 'post'
+    ) {
     }
 
     public function render(): string

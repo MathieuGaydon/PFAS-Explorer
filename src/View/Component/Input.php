@@ -1,11 +1,15 @@
 <?php
 
-namespace App\View;
+namespace App\View\Component;
 
 final class Input extends Component
 {
-    public function __construct(private readonly string $name, private readonly string $label, private readonly string $type = 'text', private readonly string $value = '')
-    {
+    public function __construct(
+        private readonly string $name,
+        private readonly string $label,
+        private readonly string $type = 'text',
+        private readonly string $value = ''
+    ) {
     }
 
     public function render(): string
