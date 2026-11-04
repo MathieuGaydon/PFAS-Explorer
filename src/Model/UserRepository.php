@@ -44,4 +44,15 @@ final class UserRepository
 
         return new User($id, $email, $hash);
     }
+
+    public function updatePassword(int $id, string $motDePasseClair): bool
+    {
+        $hash = password_hash($motDePasseClair, PASSWORD_DEFAULT);
+        $stmt = $this->pdo->prepare('UPDATE users SET password = :password WHERE id = :id');
+
+        return $stmt->execute([
+            'password' => $hash,
+            'id' => $id
+        ]);
+    }
 }

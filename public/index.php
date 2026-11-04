@@ -8,6 +8,8 @@ use App\Controller\AuthController;
 use App\Controller\HomeController;
 use App\Controller\LegalNoticeController;
 use App\Controller\SiteMapController;
+use App\Controller\ForgotPasswordController;
+use App\Controller\ResetPasswordController;
 use App\Core\Database;
 use App\Core\Env;
 use App\Core\Request;
@@ -28,6 +30,8 @@ $fabriques = [
     AuthController::class => fn() => new AuthController($repository, $view),
     LegalNoticeController::class => fn() => new LegalNoticeController($view),
     SiteMapController::class => fn() => new SiteMapController($view),
+    ForgotPasswordController::class => fn() => new ForgotPasswordController($repository, $pdo, $view),
+    ResetPasswordController::class => fn() => new ResetPasswordController($repository, $pdo, $view),
 ];
 
 $request = Request::fromGlobals();
