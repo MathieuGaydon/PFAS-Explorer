@@ -1,11 +1,19 @@
 <?php
 
-namespace App\View;
+namespace App\View\Component;
 
 final class Layout extends Component
 {
-    public function __construct(private readonly string $title, private readonly string $description, private readonly array $enfants, private readonly ?array $utilisateurs, private readonly ?string $smTitle = null, private readonly ?string $smDescription = null, private readonly ?string $smImage = null, private readonly ?string $smUrl = null)
-    {
+    public function __construct(
+        private readonly string $title,
+        private readonly string $description,
+        private readonly array $enfants,
+        private readonly ?array $utilisateurs,
+        private readonly ?string $smTitle = null,
+        private readonly ?string $smDescription = null,
+        private readonly ?string $smImage = null,
+        private readonly ?string $smUrl = null
+    ) {
     }
 
     public function render(): string
@@ -54,7 +62,10 @@ final class Layout extends Component
             <!-- Import Font Inter, Noto Serif & Quicksand -->
             <link rel="preconnect" href="https://fonts.googleapis.com">
             <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-            <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+            <link
+                href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Quicksand:wght@300..700&display=swap"
+                rel="stylesheet"
+            >
         </head>
         <body id="top">
             <header class="header">
@@ -72,7 +83,10 @@ final class Layout extends Component
         <footer>
             <div class="footer-description">
                 <h3 class="title-footer">PFAS-EXPLORER</h3>
-                <p>PFAS-Explorer est une application web cartographique permettant d'explorer les contaminations aux PFAS et de gérer des espaces de travail et des données environnementales.</p>
+                <p>
+                    PFAS-Explorer est une application web cartographique permettant d'explorer les contaminations
+                    aux PFAS et de gérer des espaces de travail et des données environnementales.
+                </p>
             </div>
             <div class="footer-hyperlinks">
                 <a href="/legalnotice" class="footer-link">Mentions Légales</a>

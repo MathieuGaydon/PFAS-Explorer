@@ -19,7 +19,11 @@ class AuthController
             return Response::redirect('/');
         }
 
-        return $this->view->render('login', ['erreur' => null, 'email' => '', 'utilisateurs' => $request->session('utilisateur'),]);
+        return $this->view->render('login', [
+            'erreur' => null,
+            'email' => '',
+            'utilisateurs' => $request->session('utilisateur'),
+        ]);
     }
 
     public function login(Request $request): Response
@@ -40,12 +44,21 @@ class AuthController
             return Response::redirect('/');
         }
 
-        return $this->view->render('login', ['erreur' => 'Email ou mot de passe incorrect.', 'email' => $email, 'utilisateurs' => $request->session('utilisateur'),]);
+        return $this->view->render('login', [
+            'erreur' => 'Email ou mot de passe incorrect.',
+            'email' => $email,
+            'utilisateurs' => $request->session('utilisateur'),
+        ]);
     }
 
     public function registerForm(Request $request): Response
     {
-        return $this->view->render('register', ['erreurs' => [], 'succes' => false, 'email' => '', 'utilisateurs' => $request->session('utilisateur'),]);
+        return $this->view->render('register', [
+            'erreurs' => [],
+            'succes' => false,
+            'email' => '',
+            'utilisateurs' => $request->session('utilisateur'),
+        ]);
     }
 
     public function register(Request $request): Response
@@ -80,7 +93,12 @@ class AuthController
             $succes = true;
         }
 
-        return $this->view->render('register', ['erreurs' => $erreurs, 'succes' => $succes, 'email' => $email, 'utilisateurs' => $request->session('utilisateur'),]);
+        return $this->view->render('register', [
+            'erreurs' => $erreurs,
+            'succes' => $succes,
+            'email' => $email,
+            'utilisateurs' => $request->session('utilisateur'),
+        ]);
     }
 
     public function logout(Request $request): Response

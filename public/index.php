@@ -23,15 +23,23 @@ $pdo = Database::connexion($racine);
 
 $repository = new UserRepository($pdo);
 
-$view = new View($racine . '/views', ['utilisateurs' => $_SESSION['utilisateur'] ?? null]);
+$view = new View($racine . '/src/View/Page', ['utilisateurs' => $_SESSION['utilisateur'] ?? null]);
 
 $fabriques = [
     HomeController::class => fn() => new HomeController($view),
     AuthController::class => fn() => new AuthController($repository, $view),
     LegalNoticeController::class => fn() => new LegalNoticeController($view),
     SiteMapController::class => fn() => new SiteMapController($view),
-    ForgotPasswordController::class => fn() => new ForgotPasswordController($repository, $pdo, $view),
-    ResetPasswordController::class => fn() => new ResetPasswordController($repository, $pdo, $view),
+    ForgotPasswordController::class => fn() => new ForgotPasswordController(
+        $repository,
+        $pdo,
+        $view
+    ),
+    ResetPasswordController::class => fn() => new ResetPasswordController(
+        $repository,
+        $pdo,
+        $view
+    ),
 ];
 
 $request = Request::fromGlobals();

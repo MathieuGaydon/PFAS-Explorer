@@ -1,6 +1,6 @@
 <?php
-use App\View\Layout;
-use App\View\ForgotPassword;
+use App\View\Component\Layout;
+use App\View\Component\ForgotPassword;
 
 echo new Layout(
     title: 'PFAS-Explorer - Mot de passe oublié',

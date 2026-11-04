@@ -4,7 +4,13 @@ namespace App\Core;
 
 final class Request
 {
-    public function __construct(public readonly string $methode, public readonly string $chemin, private array $parametresGet = [], private array $parametresPost = [], private array $donneesSession = [])
+    public function __construct(
+        public readonly string $methode,
+        public readonly string $chemin,
+        private array $parametresGet = [],
+        private array $parametresPost = [],
+        private array $donneesSession = []
+    )
     {
     }
 

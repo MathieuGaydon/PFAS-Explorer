@@ -1,6 +1,6 @@
 <?php
 
-namespace App\View;
+namespace App\View\Component;
 
 final class Paragraph extends Component
 {

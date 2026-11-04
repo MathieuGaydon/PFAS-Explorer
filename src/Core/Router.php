@@ -4,8 +4,11 @@ namespace App\Core;
 
 final class Router
 {
-    public function __construct(private readonly array $routes, private readonly array $fabriques, private readonly View $view)
-    {
+    public function __construct(
+        private readonly array $routes,
+        private readonly array $fabriques,
+        private readonly View $view
+    ) {
     }
 
     public function dispatch(Request $request): Response

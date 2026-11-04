@@ -40,7 +40,15 @@ final class Token
         $this->deleteForUser($userId);
 
         $stmt = $this->pdo->prepare(
-            "INSERT INTO tokens (user_id, token, expires_at) VALUES (:user_id, :token, DATETIME('now', '+' || :minutes || ' minutes'))"
+            "INSERT INTO tokens (
+                user_id,
+                token,
+                expires_at
+            ) VALUES (
+                :user_id,
+                :token,
+                DATETIME('now', '+' || :minutes || ' minutes')
+            )"
         );
 
         return $stmt->execute([

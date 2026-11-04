@@ -136,7 +136,10 @@ final class ResetPasswordController
                     $_SESSION['reset_verified_until']
                 );
 
-                $_SESSION['message_succes'] = 'Votre mot de passe a bien été modifié. Vous pouvez maintenant vous connecter.';
+                $_SESSION['message_succes'] = implode(' ', [
+                    'Votre mot de passe a bien été modifié.',
+                    'Vous pouvez maintenant vous connecter.'
+                ]);
 
                 return Response::redirect('/login');
             }

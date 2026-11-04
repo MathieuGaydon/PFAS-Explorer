@@ -1,11 +1,11 @@
 <?php
 
-use App\View\Alert;
-use App\View\Button;
-use App\View\Form;
-use App\View\Input;
-use App\View\Layout;
-use App\View\Paragraph;
+use App\View\Component\Alert;
+use App\View\Component\Button;
+use App\View\Component\Form;
+use App\View\Component\Input;
+use App\View\Component\Layout;
+use App\View\Component\Paragraph;
 
 $enfants = [
     new Alert($erreurs ?? []),
