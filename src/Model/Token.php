@@ -13,12 +13,12 @@ final class Token
 
     private function initTable(): void
     {
-        $this->pdo->exec('CREATE TABLE IF NOT EXISTS tokens (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
+        $this->pdo->exec('CREATE TABLE IF NOT EXISTS "Token" (
+            id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
             user_id INTEGER NOT NULL,
             token TEXT NOT NULL,
-            expires_at DATETIME NOT NULL,
-            FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+            expires_at TIMESTAMPTZ NOT NULL,
+            FOREIGN KEY (user_id) REFERENCES "User"(id) ON DELETE CASCADE
         )');
     }
 
@@ -40,14 +40,14 @@ final class Token
         $this->deleteForUser($userId);
 
         $stmt = $this->pdo->prepare(
-            "INSERT INTO tokens (
+            "INSERT INTO \"Token\" (
                 user_id,
                 token,
                 expires_at
             ) VALUES (
                 :user_id,
                 :token,
-                DATETIME('now', '+' || :minutes || ' minutes')
+                NOW() + (:minutes * INTERVAL '1 minute')
             )"
         );
 
@@ -61,7 +61,7 @@ final class Token
     public function isValid(int $userId, string $token): bool
     {
         $stmt = $this->pdo->prepare(
-            'SELECT 1 FROM tokens WHERE user_id = :user_id AND token = :token AND expires_at > CURRENT_TIMESTAMP'
+            'SELECT 1 FROM "Token" WHERE user_id = :user_id AND token = :token AND expires_at > CURRENT_TIMESTAMP'
         );
         $stmt->execute([
             'user_id' => $userId,
@@ -73,14 +73,14 @@ final class Token
 
     public function deleteForUser(int $userId): bool
     {
-        $stmt = $this->pdo->prepare('DELETE FROM tokens WHERE user_id = :user_id');
+        $stmt = $this->pdo->prepare('DELETE FROM "Token" WHERE user_id = :user_id');
 
         return $stmt->execute(['user_id' => $userId]);
     }
 
     public function deleteExpired(): int
     {
-        $stmt = $this->pdo->prepare('DELETE FROM tokens WHERE expires_at <= CURRENT_TIMESTAMP');
+        $stmt = $this->pdo->prepare('DELETE FROM "Token" WHERE expires_at <= CURRENT_TIMESTAMP');
         $stmt->execute();
 
         return $stmt->rowCount();
