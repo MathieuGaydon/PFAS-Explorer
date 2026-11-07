@@ -38,8 +38,8 @@ final class Env
 
                 self::$variables[$cle] = $valeur;
 
-                $valeur = self::$variables[$cle] ?? getenv($cle);
-                return ($valeur === false || $valeur === null) ? $defaut : $valeur;
+                $_ENV[$cle]=$valeur;
+                putenv("$cle=$valeur");
             }
         }
     }
