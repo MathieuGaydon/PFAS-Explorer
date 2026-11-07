@@ -32,11 +32,13 @@ final class Env
                 $valeur = trim($parties[1]);
 
                 // retirer les guillemets
-                $valeur = trim($valeur, '"\'');
+                if(strlen($valeur) >= 2 && $valeur[0] === '"' && $valeur[-1] === '"') {
+                    $valeur = substr($valeur, 1, -1);
+                }
 
                 self::$variables[$cle] = $valeur;
 
-                $_ENV[$cle] = $valeur;
+                $_ENV[$cle]=$valeur;
                 putenv("$cle=$valeur");
             }
         }
