@@ -4,6 +4,7 @@ namespace App\Core;
 
 use PDO;
 use RuntimeException;
+use PDOException;
 
 final class Database
 {
@@ -15,10 +16,16 @@ final class Database
             $dsn = 'sqlite:' . $racine . '/' . substr($dsn, 7);
         }
 
-        $pdo = new PDO($dsn, Env::get('DB_USER') ?: null, Env::get('DB_PASSWORD') ?: null);
+        try {
+            $pdo = new PDO($dsn, Env::get('DB_USER') ?: null, Env::get('DB_PASSWORD') ?: null);
+        } catch (PDOException $e) {
+            error_log('Erreur de connexion à la base de données : ' . $e->getMessage());
+            throw new \RuntimeException('Impossible de se connecter à la base de données');
+        }
+
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $pdo->exec('CREATE TABLE IF NOT EXISTS "User" (
-            id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+        $pdo->exec('CREATE TABLE IF NOT EXISTS "Users"."User" (
+            id SERIAL PRIMARY KEY,
             email TEXT NOT NULL UNIQUE,
             password TEXT NOT NULL
             )');

@@ -1,0 +1,23 @@
+name : Deploy to alwaysdata
+
+on:
+  push:
+    branches : [deployment]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - name: Configurer SSH
+        run : |
+          mkdir -p ~/.ssh
+          chmod 700 ~/.ssh
+          printf '%s\n '"${{ secrets.SSH_PRIVATE_KEY}}" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan -H ${{ secrets.SSH_HOST}} >> ~/.ssh/known_hosts
+
+      - name: Mettre à jour le serveur
+        run: |
+          ssh ${{ secrets.SSH_USER}}@${{ secrets.SSH_HOST}} \
+            "cd ~/sites/pfas && git fetch origin deployment && git reset --hard origin/deployment"
