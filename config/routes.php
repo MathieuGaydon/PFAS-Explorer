@@ -6,6 +6,7 @@ use App\Controller\LegalNoticeController;
 use App\Controller\SiteMapController;
 use App\Controller\ForgotPasswordController;
 use App\Controller\ResetPasswordController;
+use App\Controller\MapController;
 
 return [
     ['GET', '/', [HomeController::class, 'index']],
@@ -22,4 +23,5 @@ return [
     ['POST', '/reset-password-verify', [ResetPasswordController::class, 'verifySend']],
     ['GET', '/reset-password', [ResetPasswordController::class, 'resetForm']],
     ['POST', '/reset-password', [ResetPasswordController::class, 'resetSend']],
+    ['GET', '/api/dots', [MapController::class, 'dots']],
 ];
