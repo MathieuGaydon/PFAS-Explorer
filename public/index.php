@@ -10,6 +10,7 @@ use App\Controller\LegalNoticeController;
 use App\Controller\SiteMapController;
 use App\Controller\ForgotPasswordController;
 use App\Controller\ResetPasswordController;
+use App\Controller\MapController;
 use App\Core\Database;
 use App\Core\Env;
 use App\Core\Request;
