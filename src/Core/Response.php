@@ -14,13 +14,13 @@ final class Response
     }
 
     public static function json(mixed $donnees, int $statut = 200): self
-+    {
-+        return new self(
-+            $statut,
-+            json_encode($donnees, JSON_UNESCAPED_UNICODE | JSON_THROW_ON_ERROR),
-+            ['Content-Type' => 'application/json; charset=utf-8']
-+        );
-+    }
+    {
+        return new self(
+            $statut,
+            json_encode($donnees, JSON_UNESCAPED_UNICODE | JSON_THROW_ON_ERROR),
+            ['Content-Type' => 'application/json; charset=utf-8']
+        );
+    }
 
     public function send(): void
     {
