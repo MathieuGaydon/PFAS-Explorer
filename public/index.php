@@ -41,6 +41,7 @@ $fabriques = [
         $pdo,
         $view
     ),
+    MapController::class => fn() => new MapController(),
 ];
 
 $request = Request::fromGlobals();
