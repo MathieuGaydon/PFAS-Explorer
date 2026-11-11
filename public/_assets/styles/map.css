@@ -1,22 +1,44 @@
 #main-content {
     display: flex;
+    align-items: flex-start;
     gap: 15px;
-    height: 90%;
     width: 100%;
+    box-sizing: border-box;
+    padding: 15px;
 }
 
 #map {
-    height: 500px;
+    height: 250px;
     width: 45%;
+    margin-bottom: 15px;
 }
 
 #info {
     display: none;
-    height: 65%;
+    box-sizing: border-box;
     width: 30%;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: red;
+    height: auto;
+    min-height: 250px;
+    margin: 0 auto 15px;
+    padding: 20px 24px;
+    background-color: #013E37;
+    border-radius: 12px;
+}
+
+#info h2 {
+    margin: 0 0 15px;
+    text-align: center;
+}
+
+#info ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-align: left;
+}
+
+#info li {
+    margin-bottom: 8px;
 }
 
 #map path.leaflet-interactive:hover {
