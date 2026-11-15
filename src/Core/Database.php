@@ -24,10 +24,12 @@ final class Database
         }
 
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $pdo->exec('CREATE TABLE IF NOT EXISTS "Users"."User" (
+        $pdo->exec('CREATE TABLE IF NOT EXISTS "Public"."User" (
             id SERIAL PRIMARY KEY,
             email TEXT NOT NULL UNIQUE,
-            password TEXT NOT NULL
+            password TEXT NOT NULL,
+            id_role INT NOT NULL,
+            CONSTRAINT fk_role FOREIGN KEY (id_role) REFERENCES "Public"."Role"(id_role)
             )');
 
         return $pdo;
