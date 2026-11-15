@@ -2,6 +2,7 @@
 
 use App\View\Component\Layout;
 use App\View\Component\Link;
+use App\View\Component\MapView;
 use App\View\Component\Paragraph;
 use App\View\Component\Strong;
 
@@ -28,6 +29,8 @@ if ($utilisateurs === null) {
         ', vous êtes connecté.'
     ]);
 }
+
+$enfants[] = new MapView();
 
 echo new Layout(
     title: 'Accueil - PFAS-EXPLORER',
