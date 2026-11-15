@@ -10,9 +10,9 @@ use App\View\Component\Paragraph;
 
 if ($succes ?? false) {
     $enfants = [
+        new Alert(['Votre compte a été créé avec succès !'], 'success'),
         new Paragraph([
-            'Votre compte a été créé. ',
-            new Link('/login', 'Connectez-vous'),
+            new Link('/login', 'Connectez-vous dès maintenant'),
             '.'
         ])
     ];
@@ -24,6 +24,11 @@ if ($succes ?? false) {
             new Input('password', 'Mot de passe', 'password', $password ?? ''),
             new Input('confirmation', 'Confirmation mot de passe', 'password'),
             new Button('S\'inscrire')
+        ]),
+        new Paragraph([
+            'Vous avez déjà un compte ? ',
+            new Link('/login', 'Connectez-vous'),
+            '.'
         ])
     ];
 }

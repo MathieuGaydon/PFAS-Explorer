@@ -14,7 +14,7 @@ unset($_SESSION['message_succes']);
 $enfants = [];
 
 if ($messageSucces !== null) {
-    $enfants[] = new Paragraph([$messageSucces]);
+    $enfants[] = new Alert([$messageSucces], 'success');
 }
 $enfants[] = new Alert($erreur === null ? [] : [$erreur]);
 
@@ -24,7 +24,7 @@ $enfants[] = new Form('/login', [
     new Button('Se connecter'),
     new Paragraph([
         new Link('/forgot-password', 'Mot de passe oublié ?')
-    ]),
+    ], 'forgot-password-link'),
 ]);
 
 $enfants[] = new Paragraph([

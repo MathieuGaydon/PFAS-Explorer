@@ -8,7 +8,8 @@ final class Input extends Component
         private readonly string $name,
         private readonly string $label,
         private readonly string $type = 'text',
-        private readonly string $value = ''
+        private readonly string $value = '',
+        private readonly bool $required = true
     ) {
     }
 
@@ -18,12 +19,13 @@ final class Input extends Component
         $label = $this->e($this->label);
         $type = $this->e($this->type);
         $value = $this->e($this->value);
+        $requiredAttr = $this->required ? ' required' : '';
 
         return <<<HTML
-        <p>
-        <label for="{$name}">{$label}</label><br>
-        <input type="{$type}" id="{$name}" name="{$name}" value="{$value}" required>
-        </p>
+        <div class="form-group">
+            <label for="{$name}">{$label}</label>
+            <input type="{$type}" id="{$name}" name="{$name}" value="{$value}"{$requiredAttr}>
+        </div>
         HTML;
     }
 }
