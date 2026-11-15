@@ -73,9 +73,11 @@ final class Layout extends Component
         </head>
         <body id="top">
             <header class="header">
-                <h1><a href="/" class="btn-accueil">PFAS-EXPLORER</a></h1>
+                <div class="header-brand">
+                    <a href="/" class="btn-accueil">PFAS-EXPLORER</a>
+                </div>
                 <!-- Menu -->
-                <nav id="buttonnav">
+                <nav id="buttonnav" aria-label="Navigation principale">
                     {$nav}
                 </nav>
             </header>
@@ -85,19 +87,27 @@ final class Layout extends Component
         </main>
         
         <footer>
-            <div class="footer-description">
-                <h3 class="title-footer">PFAS-EXPLORER</h3>
-                <p>
-                    PFAS-Explorer est une application web cartographique permettant d'explorer les contaminations
-                    aux PFAS et de gérer des espaces de travail et des données environnementales.
-                </p>
+            <div class="footer-container">
+                <div class="footer-description">
+                    <h3 class="title-footer">PFAS-EXPLORER</h3>
+                    <p>
+                        PFAS-Explorer est une application web cartographique permettant d'explorer les contaminations
+                        aux PFAS et de gérer des espaces de travail et des données environnementales.
+                    </p>
+                </div>
+                <div class="footer-nav-col">
+                    <h4 class="footer-subtitle">Navigation</h4>
+                    <div class="footer-hyperlinks">
+                        <a href="/" class="footer-link">Accueil</a>
+                        <a href="/legalnotice" class="footer-link">Mentions Légales</a>
+                        <a href="/sitemap" class="footer-link">Plan du site</a>
+                    </div>
+                </div>
+                <div class="footer-meta-col">
+                    <p class="footer-copy">© 2026 - Tous droits réservés</p>
+                    <a href="#top" class="footer-link return-top" title="Retour en haut de page" aria-label="Retour en haut de page">↑</a>
+                </div>
             </div>
-            <div class="footer-hyperlinks">
-                <a href="/legalnotice" class="footer-link">Mentions Légales</a>
-                <a href="/sitemap" class="footer-link">Plan du site</a>
-                <p>© 2026 - Tous droits réservés</p>
-            </div>
-            <a href="#top" class="footer-link return-top">↑</a>
         </footer>
         </body>
         </html>

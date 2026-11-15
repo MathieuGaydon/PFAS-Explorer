@@ -5,14 +5,15 @@
 .sitemap li {
     font-size: 25px;
     margin-left: 15px;
-    font-family: 'Quicksand', sans-serif;
+    font-family: var(--font-secondary);
 }
 
 .sitemap a {
-    color: #FFEFB3;
+    color: var(--text-primary);
     text-decoration: none;
 }
 
+.sitemap a:hover,
 .sitemap-link:hover {
     text-decoration: underline;
 }
