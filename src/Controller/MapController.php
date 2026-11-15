@@ -19,11 +19,11 @@ final class MapController
         // visibles à l'écran donné par les variables $minLat, $maxLat, 
         // $minLong, $maxLong
         $dots = [
-            ['dotId' => 1, 'lat' => 32.080881, 'long' => 34.780569],
-            ['dotId' => 2, 'lat' => 31.768319, 'long' => 35.213710],
-            ['dotId' => 3, 'lat' => 32.794044, 'long' => 34.989571],
-            ['dotId' => 4, 'lat' => 31.252973, 'long' => 34.791462],
-            ['dotId' => 5, 'lat' => 32.916667, 'long' => 35.5],
+            ['dotId' => 1, 'dotName' => 'Paris',     'lat' => 48.856614, 'long' => 2.352222],
+            ['dotId' => 2, 'dotName' => 'Lyon',      'lat' => 45.764043, 'long' => 4.835659],
+            ['dotId' => 3, 'dotName' => 'Marseille', 'lat' => 43.296482, 'long' => 5.369780],
+            ['dotId' => 4, 'dotName' => 'Bordeaux',  'lat' => 44.837789, 'long' => -0.579180],
+            ['dotId' => 5, 'dotName' => 'Lille',     'lat' => 50.629250, 'long' => 3.057256],
         ];
 
         return Response::json($dots);
