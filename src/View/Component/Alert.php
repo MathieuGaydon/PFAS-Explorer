@@ -4,8 +4,10 @@ namespace App\View\Component;
 
 final class Alert extends Component
 {
-    public function __construct(private readonly array $messages)
-    {
+    public function __construct(
+        private readonly array $messages,
+        private readonly string $type = 'error'
+    ) {
     }
 
     public function render(): string
@@ -21,6 +23,8 @@ final class Alert extends Component
             $items .= "<li>{$msg}</li>";
         }
 
-        return "<ul>{$items}</ul>";
+        $class = $this->type === 'success' ? 'form-success' : 'form-errors';
+
+        return "<div class=\"{$class}\"><ul>{$items}</ul></div>";
     }
 }

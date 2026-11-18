@@ -2,8 +2,8 @@
     margin-bottom: 15px;
 }
 
-h3 {
-    font-family: 'Noto Serif', serif;
+.legal_notice h3 {
+    font-family: var(--font-serif);
     margin-left: 15px;
     font-size: 22px;
     margin-top: 10px;
@@ -13,5 +13,5 @@ h3 {
 .legal_notice li {
     font-size: 18px;
     margin-left: 15px;
-    font-family: 'Quicksand', sans-serif;
+    font-family: var(--font-secondary);
 }

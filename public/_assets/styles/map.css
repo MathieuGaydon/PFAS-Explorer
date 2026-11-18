@@ -3,7 +3,6 @@
     align-items: flex-start;
     gap: 15px;
     width: 100%;
-    box-sizing: border-box;
     padding: 15px;
 }
 
@@ -15,14 +14,13 @@
 
 #info {
     display: none;
-    box-sizing: border-box;
     width: 30%;
     height: auto;
     min-height: 250px;
     margin: 0 auto 15px;
     padding: 20px 24px;
-    background-color: #013E37;
-    border-radius: 12px;
+    background-color: var(--bg-secondary);
+    border-radius: var(--radius-lg);
 }
 
 #info h2 {
